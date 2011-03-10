@@ -1,0 +1,8 @@
+#labels Featured
+=CommAppCF=
+==a simple serial port terminal application with file send option==
+This is only a simple project implementing serial port communication. It was designed to be able to send files to a virtual comm port attached to a bluetooth printer.
+
+----
+  * Needs CF2 (Compact Framework 2) or higher.
+  * Visual Studio 2008 C# sources, Windows Mobile 5 SDK
