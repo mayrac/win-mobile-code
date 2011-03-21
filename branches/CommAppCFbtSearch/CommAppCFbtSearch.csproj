@@ -50,7 +50,6 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Intermec.Communication.Bluetooth.DeviceUtility.CF2, Version=3.30.1.0, Culture=neutral, PublicKeyToken=acd169b56b6148ba, processorArchitecture=MSIL" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
