@@ -1,4 +1,4 @@
-namespace CommAppCF
+namespace CommAppCFbtSearch
 {
     partial class Form1
     {

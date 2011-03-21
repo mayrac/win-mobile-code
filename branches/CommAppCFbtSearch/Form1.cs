@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using OpenNETCF.Net.Bluetooth;
 
-namespace CommAppCF
+namespace CommAppCFbtSearch
 {
     public partial class Form1 : Form
     {
@@ -249,90 +249,5 @@ namespace CommAppCF
         {
             bUseHexDecode = chkUseHexEncoder.Checked;
         }
-        private bool bUseSocket;
-        private myThread _thread;
-        private void mnuSocketConnect_Click(object sender, EventArgs e)
-        {
-            byte[] bdAddress = new byte[6];
-            BluetoothConnect dlg = new BluetoothConnect();
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                bUseSocket = dlg.bUseSocket;
-                if(bUseSocket)
-                    bdAddress=dlg.bdAddress;
-            }
-            dlg.Dispose();
-            if (bUseSocket)
-            {
-                if (_thread == null)
-                {
-                    System.Net.Sockets.NetworkStream ns = connectBT(bdAddress);
-                    if (ns != null)
-                    {
-                        _thread.BTDataReceived += new myThread.BTDataReceivedEventHandler(_thread_BTDataReceived);
-                        _thread = new myThread(ref ns);
-                    }
-                }
-            }
-        }
-
-        void _thread_BTDataReceived(object sender, DataEventArgs d)
-        {
-            throw new NotImplementedException();
-        }
-        private void OnDataReceived(object sender, DataEventArgs da){
-        }
-        private System.Net.Sockets.NetworkStream connectBT(byte[] ba)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            System.Net.Sockets.NetworkStream ns=null;
-            try
-            {
-                BluetoothAddress bda = new BluetoothAddress(ba);
-                //System.Net.Sockets.Socket socket = new System.Net.Sockets.Socket();
-                BluetoothClient btClient = new BluetoothClient();
-                btClient.Connect(new BluetoothEndPoint(bda, BluetoothService.SerialPort));
-                ns = btClient.GetStream();
-                return ns;
-                //    System.IO.StreamWriter sw = new System.IO.StreamWriter(ns);
-                //    if (sw.BaseStream != null)
-                //    {
-                //        if (sw.BaseStream.CanWrite)
-                //        {
-                //            //byte[] buf = Encoding.ASCII.GetBytes(fp_text);
-                //            sw.Write(fp_text); //ns.Write(buf, 0, buf.Length);
-                //            //ns.Flush();
-                //            sw.Flush();
-                //        }
-                //        sw.Close();
-                //    }
-                //    ns.Close();
-                //    btClient.CloseSocket();
-                //    btClient.Close();
-                //    Cursor.Current = Cursors.Default;
-                //}
-            }
-            catch (Exception x)
-            {
-                Cursor.Current = Cursors.Default;
-                MessageBox.Show("Exception :" + x.Message);
-                return ns;
-            }
-        }
-        //private void btSearch_Click(object sender, EventArgs e)
-        //{
-        //    this.Enabled = false;
-        //    Cursor.Current = Cursors.WaitCursor;
-        //    BluetoothDeviceInfo[] bdi;
-        //    BluetoothClient bc = new BluetoothClient();
-        //    bdi = bc.DiscoverDevices();
-        //    comboBox1.DisplayMember = "DeviceName";
-        //    comboBox1.ValueMember = "DeviceID";
-        //    comboBox1.DataSource = bdi;
-        //    Cursor.Current = Cursors.Default;
-        //    this.Enabled = true;
-        //}
-
-
     }
 }

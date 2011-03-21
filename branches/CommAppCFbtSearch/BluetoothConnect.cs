@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 
 using OpenNETCF.Net.Bluetooth;
 
-namespace CommAppCF
+namespace CommAppCFbtSearch
 {
     public partial class BluetoothConnect : Form
     {

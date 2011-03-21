@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Win32;
 using System.Diagnostics;
 
-namespace CommAppCF
+namespace CommAppCFbtSearch
 {
     class serialSet : IDisposable
     {

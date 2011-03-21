@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO.Ports;
 
-namespace CommAppCF
+namespace CommAppCFbtSearch
 {
     public partial class ConnectDlg : Form
     {
