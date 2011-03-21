@@ -85,10 +85,7 @@ namespace CommAppCF
         }
         private void mnuOK_Click(object sender, EventArgs e)
         {
-            if (!bUseSocket)
-                serialPortConnect();
-            else
-                ;
+            serialPortConnect();
             this.Close();
         }
 
@@ -96,11 +93,6 @@ namespace CommAppCF
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
-        }
-
-        private void radioSerialPort_CheckedChanged(object sender, EventArgs e)
-        {
-            bUseSocket = radioSocketConnect.Checked;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -113,8 +105,9 @@ namespace CommAppCF
             comboBox1.DisplayMember = "DeviceName";
             comboBox1.ValueMember = "DeviceID";
             comboBox1.DataSource = bdi;
-            comboBox1.SelectedIndex = 0;
             bc.Close();
+            if (comboBox1.Items.Count > 0)
+                comboBox1.SelectedIndex = 0;
             Cursor.Current = Cursors.Default;
             this.Enabled = true;
         }

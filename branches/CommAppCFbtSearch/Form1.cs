@@ -58,7 +58,27 @@ namespace CommAppCF
 
         private void mnuConnect_Click(object sender, EventArgs e)
         {
+            if (mnuConnect.Text == "Disconnect")
+            {
+                comport.ReadExisting();
+                comport.Close();
+                mnuConnect.Text = "Connect";
+                return;
+            }
 
+            ConnectDlg dlg = new ConnectDlg(ref comport);
+            dlg.ShowDialog();
+            if (comport.IsOpen)
+            {
+                mnuConnect.Text = "Disconnect";
+                txtReceive.Invoke(new EventHandler(delegate { txtReceive.Text += comport.PortName + " opened\r\n"; }));
+                enableControls(true);
+            }
+            else
+            {
+                mnuConnect.Text = "Connect";
+                enableControls(false);
+            }
         }
         /// <summary>
         /// enable controls based on active connection

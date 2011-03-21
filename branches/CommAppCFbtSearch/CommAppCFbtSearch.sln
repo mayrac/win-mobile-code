@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommAppCF", "CommAppCF.csproj", "{151322CC-139B-455B-8B84-1A21D3D81834}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommAppCFbtSearch", "CommAppCFbtSearch.csproj", "{151322CC-139B-455B-8B84-1A21D3D81834}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SetBTprinter", "SetBTprinter\SetBTprinter.vcproj", "{D375ADCA-6C4E-4FB8-B2AD-C64CD423A15E}"
 EndProject
